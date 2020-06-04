@@ -5,5 +5,5 @@ class Room:
         self.desc = desc
         self.name = name
 
-    def __src__(self):
-        print('{self.name}. {self.desc}').format(self=self)
+    def __str__(self):
+        return '{self.name}. {self.desc}'.format(self=self)
