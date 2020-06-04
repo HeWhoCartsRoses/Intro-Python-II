@@ -51,36 +51,34 @@ rooms['treasure'].s_to = rooms['narrow']
 yes_no = ["yes", "no"]
 directions = ["west", "east", "north", "south", "quit"]
 response = ""
+current = rooms['outside']
 while response not in directions:
-    current = rooms['outside']
     print(current)
     response = input(
         "What direction do you move?\nnorth/south/east/west/quit\n")
     if response == "north":
-        if current.n_to != 0:
-            current = rooms[current].n_to
+        if hasattr(current, 'n_to') == True:
+            current = current.n_to
             response = ''
         else:
             print('you cannot go that way. choose a different route')
             response = ''
     elif response == "south":
-        if current.s_to == False:
+        if hasattr(current, 's.to') == True:
             current = rooms[current].s_to
             response = ''
         else:
             print('you cannot go that way. choose a different route')
             response = ''
     elif response == "east":
-
-        if current.e_to == True:
+        if hasattr(current, 'w.to') == True:
             current = rooms[current].e_to
             response = ''
         else:
             print('you cannot go that way. choose a different route')
             response = ''
     elif response == "west":
-
-        if current.w_to == True:
+        if hasattr(current, 'w.to') == True:
             current = rooms[current].w_to
             response = ''
         else:
